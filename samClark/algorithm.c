@@ -9,6 +9,27 @@
  *
  */
 
+
+/* OVERVIEW
+ * 
+ * 1) main() checks that the there is exaclty one argument (excluding the 
+ *    command name) and that the argument is within the range. If either 
+ *    condition is not met, it returns an error.
+ *
+ * 2) If the conditions are satisfied, main() calls algorithm() which is the 
+ *    real meat and potatoes of the program. 
+ * 
+ * 3) algorithm() checks the character count, prints to the screen, and passes
+ *    arguments to countEnglishLetters()
+ *
+ * 4) countEnglishLetters splits the number into a tens' place and a ones' palce. 
+ *    From there, the values are passed to switches that assign the character
+ *    count. 
+ *
+ * 5) algorithm() is called recursively until there are two terminal 4's.
+ */
+
+
 #include <stdio.h>
 
 typedef unsigned int uint;         //'unsigned int's evaluate faster than 'int's
@@ -16,6 +37,10 @@ typedef unsigned int uint;         //'unsigned int's evaluate faster than 'int's
 uint letterCount;                  //number of letters in the standard English spelling of the number
 uint firstFour = 0;                //used such that the number 4 will appear twice and only twice
 uint firstNumber = 1;
+
+unit countEnglishLetters(uint number);
+
+int algorithm(uint input);         //NOTE: algorithm() is declared as an 'int' not 'uint' because 'uint' causes problems
 
 uint main(uint argc, char *argv[])
 {
@@ -92,7 +117,7 @@ uint countEnglishLetters(uint number)
     };        
 };
 
-int algorithm(uint input)              //NOTE: algorithm() is declared as 'int' not 'uint' because 'uint' causes problems
+int algorithm(uint input)              //NOTE: algorithm() is declared as 'int'
 {	
     if(input == 0) return;             //failsafe if somehow letterCount or arg is set to 0
     if(firstFour != 0) 
