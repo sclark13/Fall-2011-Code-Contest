@@ -38,9 +38,6 @@ uint letterCount;                  //number of letters in the standard English s
 uint firstFour = 0;                //used such that the number 4 will appear twice and only twice
 uint firstNumber = 1;
 
-unit countEnglishLetters(uint number);
-
-int algorithm(uint input);         //NOTE: algorithm() is declared as an 'int' not 'uint' because 'uint' causes problems
 
 uint main(uint argc, char *argv[])
 {
